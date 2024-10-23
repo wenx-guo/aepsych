@@ -16,6 +16,7 @@ import torch
 from aepsych.acquisition.monotonic_rejection import MonotonicMCAcquisition
 from aepsych.acquisition.objective import ProbitObjective
 from botorch.acquisition.input_constructors import acqf_input_constructor
+from botorch.acquisition import AcquisitionFunction
 from botorch.acquisition.monte_carlo import MCAcquisitionFunction
 from botorch.acquisition.objective import MCAcquisitionObjective
 from botorch.models.model import Model
@@ -24,6 +25,7 @@ from botorch.sampling.normal import SobolQMCNormalSampler
 from botorch.utils.transforms import t_batch_mode_transform
 from torch import Tensor
 from torch.distributions.bernoulli import Bernoulli
+from torch.distributions.normal import Normal
 
 
 def bald_acq(obj_samples: torch.Tensor) -> torch.Tensor:
@@ -115,7 +117,6 @@ class BernoulliMCMutualInformation(MCAcquisitionFunction):
             obj_samples = obj_samples[..., None]
         return bald_acq(obj_samples)
 
-
 @acqf_input_constructor(BernoulliMCMutualInformation)
 def construct_inputs_mi(
     model,
@@ -148,3 +149,37 @@ class MonotonicBernoulliMCMutualInformation(MonotonicMCAcquisition):
         if len(obj_samples.shape) == 2:
             obj_samples = obj_samples[..., None]
         return bald_acq(obj_samples)
+
+
+class BALD(AcquisitionFunction):
+    def __init__(
+        self,
+        model: Model
+    ) -> None:
+        r"""Bernoulli mutual information for active learning
+
+        Args:
+            model (Model): A fitted model.
+        """
+        super().__init__(model=model)
+
+    def forward(self, X: Tensor) -> Tensor:
+        r"""Evaluate BALV on the candidate set `X`.
+
+        Args:
+            X: A `batch_size x q x d`-dim Tensor.
+        Returns:
+            Tensor of shape `batch_size x q` representing the BALV of a hypothetical trial at X that active
+            learning hopes to maximize.
+        """
+        post = self.model.posterior(X)
+        X_mean, X_var = post.mean.squeeze(), post.covariance_matrix.squeeze()
+
+        a_star = X_mean / torch.sqrt(X_var + 1)
+        Z = Normal(0, 1).cdf(a_star)
+        marginal_entropy = Bernoulli(Z).entropy()
+
+        C = torch.sqrt(torch.pi * torch.log(torch.tensor(2.)) / 2)
+        conditional_entropy = (C / torch.sqrt(X_var + C**2)) * torch.exp(-X_mean**2 / 2 * (X_var + C**2))
+
+        return marginal_entropy - conditional_entropy

@@ -1,0 +1,21 @@
+--- lookahead.py
++++ lookahead.py
+@@ -18,2 +23,1 @@
+-from botorch.utils.transforms import t_batch_mode_transform
+-from torch.nn.functional import softplus
++
+@@ -21,3 +25,1 @@
+-    logsumexp,
+-    logplusexp,
+-    logdiffexp,
++
+@@ -31,2 +37,2 @@
+-import torchquad
+-import warnings
++from torch.nn.functional import softplus
++
+@@ -40,3 +47,1 @@
+-from aepsych_prerelease import acquisition
+-from datetime import datetime
+-import pickle
++

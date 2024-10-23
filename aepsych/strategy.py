@@ -41,7 +41,6 @@ def ensure_model_is_fresh(f):
             logger.info(f"Fitting done, took {time.time()-starttime}")
         self._model_is_fresh = True
         return f(self, *args, **kwargs)
-
     return wrapper
 
 

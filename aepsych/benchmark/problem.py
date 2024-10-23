@@ -13,6 +13,7 @@ import torch
 from scipy.stats import bernoulli
 from aepsych.strategy import SequentialStrategy, Strategy
 from aepsych.utils import make_scaled_sobol
+import math
 
 
 class Problem:
@@ -342,6 +343,6 @@ class LSEProblemWithEdgeLogging(LSEProblem):
 
         metrics["prop_edge_sampling_mean"] = near_edge.mean().item()
         metrics["prop_edge_sampling_err"] = (
-            2 * near_edge.std() / torch.sqrt(len(near_edge))
+            2 * near_edge.std() / math.sqrt(len(near_edge))
         ).item()
         return metrics

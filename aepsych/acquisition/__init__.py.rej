@@ -1,0 +1,30 @@
+--- __init__.py
++++ __init__.py
+@@ -10,5 +10,5 @@
+-from .rt_aware import RTMeanAwareAcquisition
+-
+-from ..config import Config
+-from .mutual_information import BernoulliMCMutualInformation, MonotonicBernoulliMCMutualInformation
+-from aepsych.acquisition.mc_posterior_variance import MCPosteriorVariance, MonotonicMCPosteriorVariance
++from aepsych.acquisition.mc_posterior_variance import (
++    MCPosteriorVariance,
++    MonotonicMCPosteriorVariance,
++)
++
+@@ -31,2 +32,1 @@
+-    MOCU,
+-    SMOCU,
++
+@@ -35,1 +35,7 @@
+-    CoreMSE
++    MOCU,
++    SMOCU,
++)
++from .mutual_information import (
++    BernoulliMCMutualInformation,
++    MonotonicBernoulliMCMutualInformation,
++
+@@ -72,1 +78,2 @@
+-    "CoreMSE"
++    "CoreMSE",
++

@@ -1,0 +1,2060 @@
+2024-10-20 12:41:53,053 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b73cdb5a450>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'GlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:53,312 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b3100ba6850>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'GlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:53,393 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b73cf327310>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:53,518 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b2a1683edd0>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:53,619 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b73cf303410>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:54,822 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b3cdbb0a750>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'GlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:54,902 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2ab453f2e610>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:54,912 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b4c24a52f90>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:54,996 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b4663dc62d0>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:55,147 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2af16ad667d0>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'GlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:55,242 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b81265e3350>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'GlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:55,253 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2baa184525d0>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'GlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:55,434 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2ad53ff7ef50>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'GlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:56,397 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2ba064f26a10>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'GlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:57,147 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b109a9f5ed0>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'GlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:57,345 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b7c2b992750>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:57,933 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2afdc0db2450>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'GlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:58,170 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2add0bdc66d0>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:58,174 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b6725eaa350>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:58,409 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b36c4c23290>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'GlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:58,472 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b744fbf6190>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:58,569 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b27be0d3410>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:58,590 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2af4082fabd0>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:58,706 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2ab4b695a890>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:58,712 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2ab9b9182850>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:58,871 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2ad4234dd7d0>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:58,889 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b25cf6ee050>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:58,912 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2ae5f7e523d0>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:58,929 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2addcba7ee90>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'GlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:58,930 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2af1f3c93250>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:58,960 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b44ea9669d0>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'GlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:58,963 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2ac94c9f1610>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'GlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:58,969 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2ad644ff2990>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'GlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:59,029 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b3c6f1ff350>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'GlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:59,030 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b0b82cc6410>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'GlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:59,083 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b14fe2b6490>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'GlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:59,148 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b5084daee50>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:59,212 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2abf557b6090>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'GlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:41:59,312 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2ae27f3ae290>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:42:01,929 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b0371c42350>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'GlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:43:36,601 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b31bdc82390>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling', 'target': array([0.6, 0.7, 0.8, 0.9])}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:43:38,274 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2ab57d046cd0>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling', 'target': array([0.6, 0.7, 0.8, 0.9])}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:43:39,836 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b8359c96250>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling', 'target': array([0.6, 0.7, 0.8, 0.9])}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:43:40,420 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b7f60b99e10>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling', 'target': array([0.6, 0.7, 0.8, 0.9])}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:43:41,429 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b4a56875fd0>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling', 'target': array([0.6, 0.7, 0.8, 0.9])}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:43:41,893 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2ad1aedcdf10>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling', 'target': array([0.6, 0.7, 0.8, 0.9])}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:43:44,336 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b410765e5d0>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling', 'target': array([0.6, 0.7, 0.8, 0.9])}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:43:44,390 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b291b836590>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling', 'target': array([0.6, 0.7, 0.8, 0.9])}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:43:44,562 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b8469996b10>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling', 'target': array([0.6, 0.7, 0.8, 0.9])}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:43:44,759 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b65f776e2d0>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling', 'target': array([0.6, 0.7, 0.8, 0.9])}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:43:44,878 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2ba151088d10>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling', 'target': array([0.6, 0.7, 0.8, 0.9])}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:43:44,931 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2ae6b7356310>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling', 'target': array([0.6, 0.7, 0.8, 0.9])}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:43:45,132 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b6e3a84a1d0>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling', 'target': array([0.6, 0.7, 0.8, 0.9])}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:43:45,264 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2ad1a58ea8d0>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling', 'target': array([0.6, 0.7, 0.8, 0.9])}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:43:45,267 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b1579eca4d0>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling', 'target': array([0.6, 0.7, 0.8, 0.9])}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:43:45,336 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b9f55d5a850>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling', 'target': array([0.6, 0.7, 0.8, 0.9])}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:43:45,460 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b3ef0f62650>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling', 'target': array([0.6, 0.7, 0.8, 0.9])}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:43:45,520 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2b2f6b113090>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling', 'target': array([0.6, 0.7, 0.8, 0.9])}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:43:45,572 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2abea706a750>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling', 'target': array([0.6, 0.7, 0.8, 0.9])}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+
+2024-10-20 12:43:56,985 [ERROR  ] Error on config {'common': {'stimuli_per_trial': 1, 'outcome_types': 'binary', 'strategy_names': '[init_strat, opt_strat]', 'invalid_config': <aepsych.benchmark.benchmark.DerivedValue object at 0x2ad48904e0d0>}, 'init_strat': {'n_trials': 10, 'generator': 'SobolGenerator'}, 'opt_strat': {'model': 'GPClassificationModel', 'generator': 'OptimizeAcqfGenerator', 'n_trials': 740, 'refit_every': 10}, 'GPClassificationModel': {'inducing_size': 100, 'mean_covar_factory': 'default_mean_covar_factory', 'inducing_point_method': 'auto'}, 'default_mean_covar_factory': {'fixed_mean': False, 'fixed_lengthscale_amplitude': True, 'lengthscale_prior': 'lognormal', 'kernel': 'RBFKernel'}, 'OptimizeAcqfGenerator': {'acqf': 'LogGlobalMI', 'restarts': 2, 'samps': 100}, 'GlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling', 'target': array([0.6, 0.7, 0.8, 0.9])}, 'LogGlobalMI': {'lookahead_type': 'multi_levelset', 'sampling_method': 'sobol_sampling'}, 'LogCoreMSE': {'lookahead_type': 'posterior'}}: Need a target for levelset lookahead!!Traceback follows:
+Traceback (most recent call last):
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/pathos_benchmark.py", line 97, in run_experiment
+    return super().run_experiment(problem, local_config, seed, rep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/benchmark/benchmark.py", line 177, in run_experiment
+    next_x = strat.gen()
+             ^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 472, in gen
+    return self._strat.gen(num_points=num_points, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 46, in wrapper
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/strategy.py", line 219, in gen
+    return self.generator.gen(num_points, self.model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 96, in gen
+    return self._gen(num_points=num_points, model=model, **gen_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 104, in _gen
+    acqf = self._instantiate_acquisition_fn(model)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/generators/optimize_acqf_generator.py", line 75, in _instantiate_acquisition_fn
+    return self.acqf(model=model, **self.acqf_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 376, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 271, in __init__
+    super().__init__(
+  File "/share/nklab/users/wg2361/aepsych/aepsych/acquisition/lookahead.py", line 138, in __init__
+    assert target is not None, "Need a target for levelset lookahead!"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Need a target for levelset lookahead!
+

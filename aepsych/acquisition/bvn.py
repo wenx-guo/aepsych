@@ -8,7 +8,7 @@
 from math import pi as _pi
 
 import torch
-
+from aepsych_prerelease.mvnorm import multivariate_normal_cdf as Phi
 
 inv_2pi = 1 / (2 * _pi)
 _neg_inv_sqrt2 = -1 / (2**0.5)
@@ -113,3 +113,23 @@ def bvn_cdf(
     """
     p = 1 - _ndtr(-xu) - _ndtr(-yu) + _bvnu(xu, yu, r)
     return torch.clip(p, 0, 1)
+
+
+def log_bvn_cdf(a_s, b_q, Z_rho):
+    """a more accurate implementation of bvn_cdf in the log space"""
+    d = 2  # bivariate normal
+    g, s, q = b_q.shape
+    a_s = a_s.unsqueeze(0).expand(*b_q.shape)
+    joint_var = torch.concat([a_s, b_q]).reshape(d, g, s, q).permute(1, 2, 3, 0)
+    Z_rho = Z_rho[None, :, :, None, None].expand(*joint_var.shape, d)
+    cov = Z_rho.clone()
+    cov[..., 0, 0] = 1.0
+    cov[..., 1, 1] = 1.0
+    Z_qs = Phi(joint_var, torch.zeros(joint_var.shape), cov)
+    if torch.any(Z_qs < 0):  # very rarely happens
+        nan_idx = torch.where(Z_qs < 0)
+        eps = Z_qs.min()
+        Z_qs = Z_qs.clone()
+        Z_qs[nan_idx] = Z_qs[nan_idx] - eps + 1e-100
+    log_Z_qs = torch.log(Z_qs)
+    return log_Z_qs

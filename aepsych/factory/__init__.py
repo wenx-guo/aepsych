@@ -13,6 +13,7 @@ from .monotonic import monotonic_mean_covar_factory
 from .ordinal import ordinal_mean_covar_factory
 from .song import song_mean_covar_factory
 from .pairwise import pairwise_mean_covar_factory
+from .preset import preset_mean_covar_factory
 
 """AEPsych factory functions.
 These functions generate a gpytorch Mean and Kernel objects from
@@ -29,6 +30,7 @@ __all__ = [
     "monotonic_mean_covar_factory",
     "song_mean_covar_factory",
     "pairwise_mean_covar_factory",
+    "preset_mean_covar_factory",
 ]
 
 Config.register_module(sys.modules[__name__])

@@ -7,14 +7,16 @@
 
 import sys
 
+from .rt_aware import RTMeanAwareAcquisition
+
 from ..config import Config
-from .lookahead import ApproxGlobalSUR, EAVC, GlobalMI, GlobalSUR, LocalMI, LocalSUR
-from .lse import MCLevelSetEstimation
-from .mc_posterior_variance import MCPosteriorVariance, MonotonicMCPosteriorVariance
-from .monotonic_rejection import MonotonicMCLSE
 from .mutual_information import (
     BernoulliMCMutualInformation,
     MonotonicBernoulliMCMutualInformation,
+)
+from .mc_posterior_variance import (
+    MCPosteriorVariance,
+    MonotonicMCPosteriorVariance,
 )
 from .objective import (
     FloorGumbelObjective,
@@ -24,27 +26,46 @@ from .objective import (
     semi_p,
 )
 
+from ..config import Config
+from .lookahead import (
+    ApproxGlobalSUR,
+    EAVC,
+    GlobalMI,
+    GlobalSUR,
+    LocalMI,
+    LocalSUR,
+    LogGlobalMI,
+    LogGlobalSUR,
+    MOCU,
+    SMOCU,
+    CoreMSE,
+    LogCoreMSE
+)
+from .rt_aware import RTMeanAwareAcquisition
+
 lse_acqfs = [
-    MonotonicMCLSE,
     GlobalMI,
     GlobalSUR,
     ApproxGlobalSUR,
     EAVC,
     LocalMI,
     LocalSUR,
+    LogGlobalMI,
+    LogGlobalSUR,
 ]
 __all__ = [
+    "RTMeanAwareAcquisition",
     "BernoulliMCMutualInformation",
     "MonotonicBernoulliMCMutualInformation",
-    "MonotonicMCLSE",
     "MCPosteriorVariance",
     "MonotonicMCPosteriorVariance",
     "MCPosteriorVariance",
-    "MCLevelSetEstimation",
     "ProbitObjective",
     "FloorProbitObjective",
     "FloorLogitObjective",
     "FloorGumbelObjective",
+    "SMOCU",
+    "MOCU",
     "GlobalMI",
     "GlobalSUR",
     "ApproxGlobalSUR",
@@ -52,6 +73,10 @@ __all__ = [
     "LocalMI",
     "LocalSUR",
     "semi_p",
+    "LogGlobalMI",
+    "LogGlobalSUR",
+    "CoreMSE",
+    "LogCoreMSE",
 ]
 
 Config.register_module(sys.modules[__name__])
